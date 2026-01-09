@@ -108,12 +108,7 @@ VitaShield-AI/
 ├── README.md
 └── LICENSE
 
-@article{abbas2026vitashield,
-  title = {VitaShield AI: Achieving Near-Perfect Precision in Breast Cancer Diagnosis with Tuned LightGBM and SHAP Interpretability},
-  author = {Abbas, Agha Wafa},
-  year = {2026},
-  doi = {10.5281/zenodo.18194376},
-  url = {https://doi.org/10.5281/zenodo.18194376}
-}
+Citation
+Abbas, A. W. (2026). VitaShield AI: Achieving Near-Perfect Precision in Breast Cancer Diagnosis with Tuned LightGBM and SHAP Interpretability (1.0). Zenodo. https://doi.org/10.5281/zenodo.18194376
 
 
