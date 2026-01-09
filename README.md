@@ -10,12 +10,13 @@
 
 <h1 align="center">VitaShield AI</h1>
 <p align="center">
-  <strong>Near-Perfect Precision in Breast Cancer Diagnosis using Tuned LightGBM & SHAP Interpretability</strong><br>
+  <strong>Achieving Near-Perfect Precision in Breast Cancer Diagnosis with Tuned LightGBM and SHAP Interpretability</strong><br>
   DOI: <a href="https://doi.org/10.5281/zenodo.18194376">10.5281/zenodo.18194376</a>
 </p>
 
 <p align="center">
   <a href="#about">About</a> •
+  <a href="#key-features">Features</a> •
   <a href="#results">Results</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
@@ -24,125 +25,102 @@
   <a href="#license">License</a>
 </p>
 
----
-
 ## About
 
-**VitaShield AI** is a fully reproducible machine learning pipeline for **interpretable and accurate breast tumor classification** (benign vs malignant) using the **Wisconsin Breast Cancer Diagnostic (WBCD) dataset**.
+**VitaShield AI** is a comprehensive machine learning project for high-precision breast cancer diagnosis using the Wisconsin Breast Cancer Diagnostic (WBCD) dataset. It achieves 97.37% accuracy and 100% precision with a tuned LightGBM model, SMOTE for imbalance handling, and SHAP for explainability.
 
-**Highlights:**
-- ✅ **Accuracy:** 97.37%  
-- ✅ **Precision:** 100% (zero false positives for malignant cases)  
-- ✅ **Recall:** 92.86%  
-- ✅ **ROC-AUC:** 99.24%  
-- ✅ **Model Interpretability:** SHAP (SHapley Additive exPlanations)  
+Author:  
+Agha Wafa Abbas  
+Lecturer, School of Computing, University of Portsmouth, United Kingdom  
+Lecturer, School of Computing, Arden University, Coventry, United Kingdom  
+Lecturer, School of Computing, Pearson, London, United Kingdom  
+Lecturer, School of Computing, IVY College of Management Sciences, Lahore, Pakistan  
+Emails: agha.wafa@port.ac.uk , awabbas@arden.ac.uk, wafa.abbas.lhr@rootsivy.edu.pk  
 
-**Methodology:**
-- SMOTE for class imbalance correction  
-- GridSearchCV for hyperparameter optimization  
-- Publication-quality visualizations: confusion matrix, SHAP beeswarm, feature importance  
+This project is licensed under the MIT License.
 
-Perfect for **researchers, students, and AI practitioners in healthcare** looking to explore **explainable AI** in medical diagnostics.
+The repository includes the full Jupyter notebook (breastcancer.ipynb), dataset (Cancer_Data.csv), pre-trained models, figures, and a research paper PDF.
 
-**Zenodo DOI:** [10.5281/zenodo.18194376](https://doi.org/10.5281/zenodo.18194376)
+## Key Features
 
----
+- Exploratory Data Analysis (EDA) with visualizations
+- SMOTE oversampling for class balance
+- Baseline model comparison across 5 algorithms
+- GridSearchCV hyperparameter tuning
+- LightGBM classifier with superior performance
+- SHAP interpretability (beeswarm and feature importance)
+- Confusion matrix and performance metrics
+- Reproducible Jupyter notebook
+- Research paper draft
 
 ## Results
 
 | Metric          | Value     | Description                                      |
 |-----------------|-----------|--------------------------------------------------|
 | Accuracy        | 97.37%    | Overall correct predictions                      |
-| Precision       | 100.00%   | Zero false positives for malignant class         |
-| Recall          | 92.86%    | 39/42 malignant cases correctly identified       |
+| Precision       | 100.00%   | No false positives for malignant class           |
+| Recall          | 92.86%    | 39/42 malignant cases identified                 |
 | F1-Score        | 96.30%    | Harmonic mean of precision and recall            |
 | ROC-AUC         | 99.24%    | Excellent class separation                       |
 
-**Top 3 Important Features (by mean |SHAP| value):**  
-1. `area_worst`  
-2. `perimeter_worst`  
-3. `concave points_worst`
-
----
+Top 10 Important Features (by SHAP):  
+area_worst (2.789), perimeter_worst (2.778), concave points_worst (1.782), texture_worst (1.722), concave points_mean (1.526), concavity_worst (1.339), area_se (1.224), texture_mean (1.053), smoothness_mean (0.765), symmetry_worst (0.676)
 
 ## Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/Aghawafaabbass/VitaShield-AI.git
+git clone https://github.com/yourusername/VitaShield-AI.git
 cd VitaShield-AI
 
-# (Recommended) Create & activate a virtual environment
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate          # Linux/macOS
-# or
-venv\Scripts\activate             # Windows
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
+# Install requirements
 pip install -r requirements.txt
-Usage
-1. Run the complete analysis notebook
-bash
-Copy code
-jupyter notebook notebooks/VitaShield_AI_Complete.ipynb
-2. Quick inference with pre-trained model
-python
-Copy code
+
+# Usage
+jupyter notebook breastcancer.ipynb
+
+# Quick model inference example
 import joblib
 import numpy as np
 
-# Load saved model & scaler
-model = joblib.load('models/VitaShield_AI_LightGBM_model.pkl')
-scaler = joblib.load('models/VitaShield_AI_scaler.pkl')
+model = joblib.load('VitaShield_AI_LightGBM_model.pkl')
+scaler = joblib.load('VitaShield_AI_scaler.pkl')
 
-# Example new patient data (30 features in correct order)
-new_patient = np.array([[17.99, 10.38, 122.80, 1001.0, 0.11840, 0.27760, 0.30010, 0.14710,
-                         0.24190, 0.07871, 1.0950, 0.9053, 8.5890, 153.40, 0.006399, 0.04904,
-                         0.05373, 0.01587, 0.03003, 0.006193, 25.38, 17.33, 184.60, 2019.0,
-                         0.16220, 0.66560, 0.71190, 0.26540, 0.46010, 0.11890]])
+# Sample input (30 features)
+new_data = np.array([[17.99, 10.38, 122.8, 1001, 0.1184, 0.2776, 0.3001, 0.1471, 0.2419, 0.07871, 1.095, 0.9053, 8.589, 153.4, 0.006399, 0.04904, 0.05373, 0.01587, 0.03003, 0.006193, 25.38, 17.33, 184.6, 2019, 0.1622, 0.6656, 0.7119, 0.2654, 0.4601, 0.1189]])
 
-# Scale & predict
-scaled = scaler.transform(new_patient)
-prediction = model.predict(scaled)[0]
-probability = model.predict_proba(scaled)[0][1]
+scaled_data = scaler.transform(new_data)
+prediction = model.predict(scaled_data)
+print("Prediction:", "Malignant" if prediction[0] == 1 else "Benign")
 
-print("Diagnosis:", "Malignant" if prediction == 1 else "Benign")
-print(f"Malignant Probability: {probability:.2%}")
-Project Structure
-kotlin
-Copy code
+# Project Structure 
 VitaShield-AI/
-├── data/
-│   └── Cancer_Data.csv
-├── models/
-│   ├── VitaShield_AI_LightGBM_model.pkl
-│   └── VitaShield_AI_scaler.pkl
-├── notebooks/
-│   └── VitaShield_AI_Complete.ipynb
-├── figures/
-│   ├── class_distribution.png
-│   ├── correlation_heatmap.png
-│   ├── confusion_matrix.png
-│   ├── shap_beeswarm.png
-│   └── top_shap_features.png
-├── docs/
-│   └── VitaShield_AI_Research_Paper.pdf
+├── Cancer_Data.csv
+├── VitaShield_AI_LightGBM_model.pkl
+├── VitaShield_AI_scaler.pkl
+├── breastcancer.ipynb
+├── VitaShield AI Achieving Near-Perfect Precision in Breast Cancer Diagnosis with Tuned LightGBM and SHAP Interpretability.pdf
 ├── requirements.txt
 ├── README.md
 └── LICENSE
-Citation
-If you use this work, please cite:
 
-bibtex
-Copy code
-@misc{abbas2026vitashield,
-  author       = {Agha Wafa Abbas},
-  title        = {VitaShield AI: Achieving Near-Perfect Precision in Breast Cancer Diagnosis with Tuned LightGBM and SHAP Interpretability},
-  year         = {2026},
-  doi          = {10.5281/zenodo.18194376},
-  publisher    = {Zenodo},
-  howpublished = {\url{https://doi.org/10.5281/zenodo.18194376}},
-  note         = {GitHub repository also available at \url{https://github.com/Aghawafaabbass/VitaShield-AI}}
+@article{abbas2026vitashield,
+  title = {VitaShield AI: Achieving Near-Perfect Precision in Breast Cancer Diagnosis with Tuned LightGBM and SHAP Interpretability},
+  author = {Abbas, Agha Wafa},
+  year = {2026},
+  doi = {10.5281/zenodo.18194376},
+  url = {https://doi.org/10.5281/zenodo.18194376}
 }
-License
-Distributed under the MIT License. See LICENSE for more information.
+
+
+# Agha Wafa Abbas
+# Lecturer, School of Computing, University of Portsmouth, United Kingdom
+# Lecturer, School of Computing, Arden University, Coventry, United Kingdom
+# Lecturer, School of Computing, Pearson, London, United Kingdom
+# Lecturer, School of Computing, IVY College of Management Sciences, Lahore, Pakistan
+# Emails: agha.wafa@port.ac.uk , awabbas@arden.ac.uk, wafa.abbas.lhr@rootsivy.edu.pk
+#This project is licensed under the MIT License.
