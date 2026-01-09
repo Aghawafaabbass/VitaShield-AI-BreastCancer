@@ -51,7 +51,7 @@ The repository includes the full Jupyter notebook (breastcancer.ipynb), dataset 
 - SHAP interpretability (beeswarm and feature importance)
 - Confusion matrix and performance metrics
 - Reproducible Jupyter notebook
-- Research paper draft
+- Research Article
 
 ## Results
 
