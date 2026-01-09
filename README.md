@@ -117,10 +117,3 @@ VitaShield-AI/
 }
 
 
-# Agha Wafa Abbas
-# Lecturer, School of Computing, University of Portsmouth, United Kingdom
-# Lecturer, School of Computing, Arden University, Coventry, United Kingdom
-# Lecturer, School of Computing, Pearson, London, United Kingdom
-# Lecturer, School of Computing, IVY College of Management Sciences, Lahore, Pakistan
-# Emails: agha.wafa@port.ac.uk , awabbas@arden.ac.uk, wafa.abbas.lhr@rootsivy.edu.pk
-#This project is licensed under the MIT License.
