@@ -25,6 +25,8 @@
   <a href="#license">License</a>
 </p>
 
+
+[![DOI](https://zenodo.org/badge/1130890094.svg)](https://doi.org/10.5281/zenodo.18242458)
 ## About
 
 **VitaShield AI** is a comprehensive machine learning project for high-precision breast cancer diagnosis using the Wisconsin Breast Cancer Diagnostic (WBCD) dataset. It achieves 97.37% accuracy and 100% precision with a tuned LightGBM model, SMOTE for imbalance handling, and SHAP for explainability.
